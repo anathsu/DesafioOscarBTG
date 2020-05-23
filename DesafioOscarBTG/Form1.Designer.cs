@@ -38,6 +38,8 @@
             this.lblCaminhoSucesso = new System.Windows.Forms.Label();
             this.lblGravacaoSucesso = new System.Windows.Forms.Label();
             this.dgvDadosSql = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblResultado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDadosSql)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,11 +130,31 @@
             this.dgvDadosSql.Size = new System.Drawing.Size(772, 257);
             this.dgvDadosSql.TabIndex = 9;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(559, 142);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Receita bruta do arquivo: ";
+            // 
+            // lblResultado
+            // 
+            this.lblResultado.AutoSize = true;
+            this.lblResultado.Location = new System.Drawing.Point(683, 142);
+            this.lblResultado.Name = "lblResultado";
+            this.lblResultado.Size = new System.Drawing.Size(43, 13);
+            this.lblResultado.TabIndex = 11;
+            this.lblResultado.Text = "aaaaaa";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 450);
+            this.Controls.Add(this.lblResultado);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvDadosSql);
             this.Controls.Add(this.lblGravacaoSucesso);
             this.Controls.Add(this.lblCaminhoSucesso);
@@ -164,6 +186,8 @@
         private System.Windows.Forms.Label lblCaminhoSucesso;
         private System.Windows.Forms.Label lblGravacaoSucesso;
         private System.Windows.Forms.DataGridView dgvDadosSql;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblResultado;
     }
 }
 

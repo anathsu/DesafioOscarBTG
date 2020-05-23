@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace DesafioOscarBTG
         private string strConn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BD_DesafioOscarBTG;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection conn = null;
         SqlCommand command = null;
+        Double receitaBruta = 0;
 
         public Form1()
         {
@@ -75,6 +77,7 @@ namespace DesafioOscarBTG
             {
                 var lista = new List<string>();
                 int i = 0;
+                
 
                 using (StreamReader fluxotexto = new StreamReader(txtArquivo.Text))
 
@@ -92,7 +95,10 @@ namespace DesafioOscarBTG
                             int delimeter = 9;
                             char _delimeter = Convert.ToChar(delimeter);
                             string[] rowData = linhatexto.Split(_delimeter);
-                            cadastra(rowData[0], rowData[1], rowData[2], rowData[3], rowData[4], rowData[5]);
+                            receitaBruta += (float.Parse(rowData[2], CultureInfo.InvariantCulture.NumberFormat) * Convert.ToInt32(rowData[3]));
+
+                            cadastra(rowData[0], rowData[1], rowData[2], rowData[3], rowData[4], rowData[5]);                     
+
                         }
 
                         i++;
@@ -116,7 +122,7 @@ namespace DesafioOscarBTG
 
             command.Parameters.AddWithValue("@comprador", comprador);
             command.Parameters.AddWithValue("@descricao", descricao);
-            command.Parameters.AddWithValue("@preco_unitario", float.Parse(preco_unitario));
+            command.Parameters.AddWithValue("@preco_unitario", float.Parse(preco_unitario, CultureInfo.InvariantCulture.NumberFormat));
             command.Parameters.AddWithValue("@quantidade", Convert.ToInt32(quantidade));
             command.Parameters.AddWithValue("@endereco", endereco);
             command.Parameters.AddWithValue("@fornecedor", fornecedor);
@@ -128,7 +134,7 @@ namespace DesafioOscarBTG
 
             conn.Close();
 
-
+            lblResultado.Text = receitaBruta.ToString("C");
         }
 
         private void listaGrid()
