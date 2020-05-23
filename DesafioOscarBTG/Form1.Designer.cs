@@ -114,9 +114,8 @@
             this.lblGravacaoSucesso.AutoSize = true;
             this.lblGravacaoSucesso.Location = new System.Drawing.Point(164, 165);
             this.lblGravacaoSucesso.Name = "lblGravacaoSucesso";
-            this.lblGravacaoSucesso.Size = new System.Drawing.Size(43, 13);
+            this.lblGravacaoSucesso.Size = new System.Drawing.Size(0, 13);
             this.lblGravacaoSucesso.TabIndex = 8;
-            this.lblGravacaoSucesso.Text = "bbbbbb";
             // 
             // Form1
             // 

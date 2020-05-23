@@ -102,13 +102,13 @@ namespace DesafioOscarBTG
 
         private void cadastra(string comprador, string descricao, string preco_unitario, string quantidade, string endereco, string fornecedor)
         {
-            string strConn = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Desafio; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+            string strConn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BD_DesafioOscarBTG;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
             SqlConnection conn = new SqlConnection(strConn);
 
             conn.Open();
 
-            string strSql = "Insert into Dados (comprador, descricao, preco_unitario, quantidade, endereco, fornecedor ) " +
+            string strSql = "Insert into Dados (Comprador, Descricao, PrecoUnitario, Quantidade, Endereco, Fornecedor ) " +
                 "Values (@comprador, @descricao, @preco_unitario, @quantidade, @endereco, @fornecedor)";
 
             var insert = new SqlCommand(strSql, conn);
