@@ -14,6 +14,10 @@ namespace DesafioOscarBTG
 {
     public partial class Form1 : Form
     {
+        private string strConn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BD_DesafioOscarBTG;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        SqlConnection conn = null;
+        SqlCommand command = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -102,25 +106,22 @@ namespace DesafioOscarBTG
 
         private void cadastra(string comprador, string descricao, string preco_unitario, string quantidade, string endereco, string fornecedor)
         {
-            string strConn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BD_DesafioOscarBTG;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
-            SqlConnection conn = new SqlConnection(strConn);
-
+            conn = new SqlConnection(strConn);
             conn.Open();
 
             string strSql = "Insert into Dados (Comprador, Descricao, PrecoUnitario, Quantidade, Endereco, Fornecedor ) " +
                 "Values (@comprador, @descricao, @preco_unitario, @quantidade, @endereco, @fornecedor)";
 
-            var insert = new SqlCommand(strSql, conn);
+            command = new SqlCommand(strSql, conn);
 
-            insert.Parameters.AddWithValue("@comprador", comprador);
-            insert.Parameters.AddWithValue("@descricao", descricao);
-            insert.Parameters.AddWithValue("@preco_unitario", float.Parse(preco_unitario));
-            insert.Parameters.AddWithValue("@quantidade", Convert.ToInt32(quantidade));
-            insert.Parameters.AddWithValue("@endereco", endereco);
-            insert.Parameters.AddWithValue("@fornecedor", fornecedor);
+            command.Parameters.AddWithValue("@comprador", comprador);
+            command.Parameters.AddWithValue("@descricao", descricao);
+            command.Parameters.AddWithValue("@preco_unitario", float.Parse(preco_unitario));
+            command.Parameters.AddWithValue("@quantidade", Convert.ToInt32(quantidade));
+            command.Parameters.AddWithValue("@endereco", endereco);
+            command.Parameters.AddWithValue("@fornecedor", fornecedor);
 
-            insert.ExecuteNonQuery();
+            command.ExecuteNonQuery();
 
             lblGravacaoSucesso.Text = "Arquivo gravado com sucesso!";
 
@@ -128,5 +129,27 @@ namespace DesafioOscarBTG
 
 
         }
+
+        private void listaGrid()
+        {
+            string strSql = "SELECT * FROM Dados";
+            conn = new SqlConnection(strConn);
+            conn.Open();
+            command = new SqlCommand(strSql, conn);
+
+            try{
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dtLista = new DataTable();
+
+                adapter.Fill(dtLista);
+
+            }
+            catch
+            {
+                MessageBox.Show("Erro!");
+            }
+
+        }
+
     }
 }
