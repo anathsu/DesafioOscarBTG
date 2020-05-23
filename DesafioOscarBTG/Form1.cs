@@ -15,6 +15,7 @@ namespace DesafioOscarBTG
 {
     public partial class Form1 : Form
     {
+        //Coloque a connectionString do seu banco de dados. 
         private string strConn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BD_DesafioOscarBTG;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection conn = null;
         SqlCommand command = null;
@@ -75,9 +76,7 @@ namespace DesafioOscarBTG
         {
             if (File.Exists(txtArquivo.Text))
             {
-                var lista = new List<string>();
-                int i = 0;
-                
+                int i = 0;                
 
                 using (StreamReader fluxotexto = new StreamReader(txtArquivo.Text))
 
@@ -92,11 +91,15 @@ namespace DesafioOscarBTG
                         }
                         if (i != 0)
                         {
+                            //Começo a separar o conteudo da linha por tab
                             int delimeter = 9;
                             char _delimeter = Convert.ToChar(delimeter);
                             string[] rowData = linhatexto.Split(_delimeter);
+
+                            //Acumula o valorda quatidade vezes o preço de cada linha para no fim mostrar a receita bruta
                             receitaBruta += (float.Parse(rowData[2], CultureInfo.InvariantCulture.NumberFormat) * Convert.ToInt32(rowData[3]));
 
+                            //Cadastro no BD a linha
                             cadastra(rowData[0], rowData[1], rowData[2], rowData[3], rowData[4], rowData[5]);                     
 
                         }
