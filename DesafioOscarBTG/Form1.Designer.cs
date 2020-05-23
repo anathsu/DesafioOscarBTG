@@ -37,6 +37,8 @@
             this.btnGravar = new System.Windows.Forms.Button();
             this.lblCaminhoSucesso = new System.Windows.Forms.Label();
             this.lblGravacaoSucesso = new System.Windows.Forms.Label();
+            this.dgvDadosSql = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDadosSql)).BeginInit();
             this.SuspendLayout();
             // 
             // titulo
@@ -117,11 +119,21 @@
             this.lblGravacaoSucesso.Size = new System.Drawing.Size(0, 13);
             this.lblGravacaoSucesso.TabIndex = 8;
             // 
+            // dgvDadosSql
+            // 
+            this.dgvDadosSql.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvDadosSql.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDadosSql.Location = new System.Drawing.Point(12, 190);
+            this.dgvDadosSql.Name = "dgvDadosSql";
+            this.dgvDadosSql.Size = new System.Drawing.Size(772, 257);
+            this.dgvDadosSql.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(806, 450);
+            this.Controls.Add(this.dgvDadosSql);
             this.Controls.Add(this.lblGravacaoSucesso);
             this.Controls.Add(this.lblCaminhoSucesso);
             this.Controls.Add(this.btnGravar);
@@ -133,6 +145,8 @@
             this.Controls.Add(this.titulo);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDadosSql)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,6 +163,7 @@
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Label lblCaminhoSucesso;
         private System.Windows.Forms.Label lblGravacaoSucesso;
+        private System.Windows.Forms.DataGridView dgvDadosSql;
     }
 }
 

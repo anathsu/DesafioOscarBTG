@@ -124,6 +124,7 @@ namespace DesafioOscarBTG
             command.ExecuteNonQuery();
 
             lblGravacaoSucesso.Text = "Arquivo gravado com sucesso!";
+            listaGrid();
 
             conn.Close();
 
@@ -142,14 +143,20 @@ namespace DesafioOscarBTG
                 DataTable dtLista = new DataTable();
 
                 adapter.Fill(dtLista);
-
+                dgvDadosSql.DataSource = dtLista;
             }
             catch
             {
                 MessageBox.Show("Erro!");
             }
 
+            conn.Close();
+
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            listaGrid();
+        }
     }
 }
