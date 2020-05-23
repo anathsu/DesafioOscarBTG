@@ -63,9 +63,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(33, 142);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.Size = new System.Drawing.Size(114, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Gravas informações";
+            this.label2.Text = "Gravar informações de";
             // 
             // txtArquivo
             // 
@@ -89,6 +89,7 @@
             this.btnAbrir.TabIndex = 5;
             this.btnAbrir.Text = "Abrir";
             this.btnAbrir.UseVisualStyleBackColor = true;
+            this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
             // 
             // btnGravar
             // 
@@ -104,9 +105,8 @@
             this.lblCaminhoSucesso.AutoSize = true;
             this.lblCaminhoSucesso.Location = new System.Drawing.Point(164, 114);
             this.lblCaminhoSucesso.Name = "lblCaminhoSucesso";
-            this.lblCaminhoSucesso.Size = new System.Drawing.Size(43, 13);
+            this.lblCaminhoSucesso.Size = new System.Drawing.Size(0, 13);
             this.lblCaminhoSucesso.TabIndex = 7;
-            this.lblCaminhoSucesso.Text = "aaaaaa";
             // 
             // lblGravacaoSucesso
             // 
