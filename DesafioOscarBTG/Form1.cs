@@ -58,7 +58,6 @@ namespace DesafioOscarBTG
                 {
                     linhatexto = fluxotexto.ReadLine();
                     registro = registro + 1;
-
                 }
 
                 txtArquivo.Text = AbrirComo.FileName;
@@ -66,7 +65,7 @@ namespace DesafioOscarBTG
                 fluxotexto.Close();
 
 
-                txtInfo.Text = ((registro - 1).ToString() + " Linhas encontradas");
+                txtInfo.Text = ((registro - 1).ToString() + " linhas encontradas");
 
                 lblCaminhoSucesso.Text = "Arquivo lido com sucesso!";
             }
@@ -103,7 +102,6 @@ namespace DesafioOscarBTG
                             cadastra(rowData[0], rowData[1], rowData[2], rowData[3], rowData[4], rowData[5]);                     
 
                         }
-
                         i++;
                     }
             }
@@ -113,6 +111,7 @@ namespace DesafioOscarBTG
             }
         }
 
+        //Funcao para cadastrar cada linha fornecida do arquivo.txt no BD 
         private void cadastra(string comprador, string descricao, string preco_unitario, string quantidade, string endereco, string fornecedor)
         {
             conn = new SqlConnection(strConn);
@@ -140,6 +139,7 @@ namespace DesafioOscarBTG
             lblResultado.Text = receitaBruta.ToString("C");
         }
 
+        //Funcao para alimentar o DataGridView com a tabela do Banco de dados
         private void listaGrid()
         {
             string strSql = "SELECT * FROM Dados";
@@ -165,6 +165,7 @@ namespace DesafioOscarBTG
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Mostro a lista cada vez que abrir o Form
             listaGrid();
         }
     }
