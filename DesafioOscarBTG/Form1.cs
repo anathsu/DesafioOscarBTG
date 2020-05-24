@@ -16,7 +16,7 @@ namespace DesafioOscarBTG
     public partial class Form1 : Form
     {
         //Coloque a connectionString do seu banco de dados. 
-        private string strConn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BD_DesafioOscarBTG;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string strConn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DesafioOscar;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection conn = null;
         SqlCommand command = null;
         Double receitaBruta = 0;
@@ -104,6 +104,8 @@ namespace DesafioOscarBTG
                         }
                         i++;
                     }
+                receitaBruta = 0;
+                i = 0;
             }
             else
             {
